@@ -2,26 +2,22 @@
     "1": {
         "name" : "Vase",
         "description" : "Hierbei handelt es sich beispielhaft um eine Vase. Das 3D Modell kann mittels Augmented Reality in ihren Räumlichkeiten angezeigt werden.",
-        "credit": "",
-        "path": "/vase/"
+        "credit": ""
     },
     "2": {
         "name" : "Zimmerpflanze",
         "description" : "Hierbei handelt es sich beispielhaft um eine Zimmerpflanze. Das 3D Modell kann mittels Augmented Reality in ihren Räumlichkeiten angezeigt werden.",
-        "credit" : "\"Indoor Plant\" (https://skfb.ly/5jhgfd0ba) by 3DHaupt is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/).",
-        "path": "/zimmerpflanze/"
+        "credit" : "\"Indoor Plant\" (https://skfb.ly/5jhgfd0ba) by 3DHaupt is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/)."
     },
     "3": {
         "name" : "Tischlampe",
         "description" : "Hierbei handelt es sich beispielhaft um eine Tischlampe. Das 3D Modell kann mittels Augmented Reality in ihren Räumlichkeiten angezeigt werden.",
-        "credit" : "\"Simple table lamp\" (https://skfb.ly/6WXH7) by MrFreeman is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).",
-        "path": "/tischlampe/"
+        "credit" : "\"Old Table Lamp V03\" (https://skfb.ly/o7pZD) by MAR.COS. is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/)."
     },
     "4": {
-        "name" : "Schüssel",
-        "description" : "Hierbei handelt es sich beispielhaft um eine Schüssel. Das 3D Modell kann mittels Augmented Reality in ihren Räumlichkeiten angezeigt werden.",
-        "credit" : "\"Winter Bowl\" (https://skfb.ly/6vvHW) by Lite is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).",
-        "path": "/schuessel/"
+        "name" : "Auto",
+        "description" : "Hierbei handelt es sich beispielhaft um ein Auto. Das 3D Modell kann mittels Augmented Reality in ihren Räumlichkeiten angezeigt werden.",
+        "credit" : "\"Lancia Fulvia rallye\" (https://skfb.ly/6XWD8) by Floppy is licensed under Creative Commons Attribution-NonCommercial (http://creativecommons.org/licenses/by-nc/4.0/)."
     }
 
 }
