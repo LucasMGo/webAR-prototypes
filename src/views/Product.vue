@@ -1,10 +1,11 @@
 <template>
   <v-container class="ma-md-12">
-    <v-row
-      ><v-col cols="12"
-        ><h1 class="font-weight-light">{{ name }}</h1></v-col
-      ></v-row
-    >
+    <v-row justify="start">
+      <v-col cols="auto">
+        <h1 class="font-weight-light">{{ name }}</h1>
+      </v-col>
+      <v-col cols="auto" id="ar-button"> </v-col>
+    </v-row>
     <v-row>
       <v-col cols="12" lg="6" class="font-weight-light">
         <p>
@@ -13,11 +14,17 @@
       </v-col>
     </v-row>
     <v-row no-gutters>
-      <v-col cols="12" lg="6">
-        <zimmerpflanze v-if="name === 'Zimmerpflanze'"></zimmerpflanze>
-        <vase v-else-if="name === 'Vase'"></vase>
-        <tischlampe v-else-if="name === 'Tischlampe'"></tischlampe>
-        <auto v-else-if="name === 'Auto'"></auto>
+      <v-col cols="12">
+        <zimmerpflanze
+          v-if="name === 'Zimmerpflanze'"
+          :viewAR="viewAR"
+        ></zimmerpflanze>
+        <vase v-else-if="name === 'Vase'" :viewAR="viewAR"></vase>
+        <tischlampe
+          v-else-if="name === 'Tischlampe'"
+          :viewAR="viewAR"
+        ></tischlampe>
+        <auto v-else-if="name === 'Auto'" :viewAR="viewAR"></auto>
       </v-col>
     </v-row>
     <v-row no-gutters>
@@ -37,6 +44,9 @@ import Vase from "../components/Vase.vue";
 export default {
   name: "Product",
   components: { Zimmerpflanze, Vase, Tischlampe, Auto },
+  data: () => ({
+    viewAR: false,
+  }),
   computed: {
     productInfo() {
       const thisProduct = products[this.$router.currentRoute.params.id];
