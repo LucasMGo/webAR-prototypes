@@ -63,5 +63,19 @@ export default {
       return entries;
     },
   },
+  mounted() {
+    // eslint-disable-next-line no-undef
+    AFRAME.registerComponent("hide-on-hit-test-start", {
+      init: function () {
+        const model = this.el;
+        model.sceneEl.addEventListener("ar-hit-test-start", () => {
+          console.log(
+            "AR Hit test started. Model not visible until hit point selected"
+          );
+          model.object3D.visible = false;
+        });
+      },
+    });
+  },
 };
 </script>
