@@ -8,7 +8,8 @@
         <p>
           Willkommen im WebAR Onlineshop. Hier stehen mehrere Produkte zur
           Auswahl, die mittels Augmented Reality in ihren Räumlichkeiten
-          angezeigt werden können.
+          angezeigt werden können. Für die Platzierung der Produkte ist ein Hiro
+          Marker erforderlich.
         </p>
         <p>
           Es handelt sich hierbei um einen Prototypen zur Evalution und
