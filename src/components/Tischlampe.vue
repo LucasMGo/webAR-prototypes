@@ -5,6 +5,8 @@
       embedded
       vr-mode-ui="enterARButton: #ar-button;"
       ar-hit-test="target:#lampe;"
+      webxr="optionalFeatures: dom-overlay; overlayElement: #dom-overlay"
+      exit-ar-on-click
     >
       <a-camera position="0 1.4 0.6"></a-camera>
 
@@ -14,6 +16,10 @@
         position="0 0 0"
         scale="1 1 1"
         hide-on-hit-test-start
+        increase-on-click
+        decrease-on-click
+        turn-left-on-click
+        turn-right-on-click
       ></a-gltf-model>
 
       <a-light type="ambient" intensity="1"></a-light>
@@ -31,6 +37,12 @@
 <script>
 export default {
   name: "Tischlampe",
+  mounted() {
+    const model = document.getElementById("lampe");
+    model.addEventListener("model-loaded", () => {
+      this.$emit("modelLoaded");
+    });
+  },
 };
 </script>
 

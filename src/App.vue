@@ -35,6 +35,7 @@
 </template>
 
 <script>
+/* eslint-disable no-undef */
 import products from "./data/products.json";
 export default {
   name: "App",
@@ -64,7 +65,6 @@ export default {
     },
   },
   mounted() {
-    // eslint-disable-next-line no-undef
     AFRAME.registerComponent("hide-on-hit-test-start", {
       init: function () {
         const model = this.el;
@@ -73,6 +73,69 @@ export default {
             "AR Hit test started. Model not visible until hit point selected"
           );
           model.object3D.visible = false;
+        });
+      },
+    });
+
+    AFRAME.registerComponent("increase-on-click", {
+      init: function () {
+        const model = this.el;
+        const increaseButton = document.getElementById("increase-button");
+        increaseButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          const currentMeshScale = mesh.scale;
+          mesh.scale.set(
+            currentMeshScale.x * 1.25,
+            currentMeshScale.y * 1.25,
+            currentMeshScale.z * 1.25
+          );
+        });
+      },
+    });
+
+    AFRAME.registerComponent("decrease-on-click", {
+      init: function () {
+        const model = this.el;
+        const decreaseButton = document.getElementById("decrease-button");
+        decreaseButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          const currentMeshScale = mesh.scale;
+          mesh.scale.set(
+            currentMeshScale.x / 1.25,
+            currentMeshScale.y / 1.25,
+            currentMeshScale.z / 1.25
+          );
+        });
+      },
+    });
+
+    AFRAME.registerComponent("turn-left-on-click", {
+      init: function () {
+        const model = this.el;
+        const turnleftButton = document.getElementById("turnleft-button");
+        turnleftButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          mesh.rotateY(-Math.PI / 2);
+        });
+      },
+    });
+
+    AFRAME.registerComponent("turn-right-on-click", {
+      init: function () {
+        const model = this.el;
+        const turnrightButton = document.getElementById("turnright-button");
+        turnrightButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          mesh.rotateY(Math.PI / 2);
+        });
+      },
+    });
+
+    AFRAME.registerComponent("exit-ar-on-click", {
+      init: function () {
+        const exitARButton = document.getElementById("exit-ar-button");
+        exitARButton.addEventListener("click", () => {
+          this.el.sceneEl.exitVR();
         });
       },
     });

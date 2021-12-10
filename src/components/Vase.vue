@@ -5,6 +5,8 @@
       embedded
       vr-mode-ui="enterARButton: #ar-button;"
       ar-hit-test="target:#vase;"
+      webxr="optionalFeatures: dom-overlay; overlayElement: #dom-overlay"
+      exit-ar-on-click
     >
       <a-camera position="0 1.4 0.6"></a-camera>
 
@@ -12,8 +14,12 @@
         id="vase"
         src="/assets/vase/f1980_193-150k-4096.gltf"
         position="0 0 0"
-        scale="1 1 1"
+        scale="0.7 0.7 0.7"
         hide-on-hit-test-start
+        increase-on-click
+        decrease-on-click
+        turn-left-on-click
+        turn-right-on-click
       ></a-gltf-model>
 
       <a-light type="ambient" intensity="1"></a-light>
@@ -31,6 +37,12 @@
 <script>
 export default {
   name: "Vase",
+  mounted() {
+    const model = document.getElementById("vase");
+    model.addEventListener("model-loaded", () => {
+      this.$emit("modelLoaded");
+    });
+  },
 };
 </script>
 
