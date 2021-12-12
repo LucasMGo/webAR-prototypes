@@ -135,7 +135,7 @@ export default {
       this.scene.add(light);
 
       this.camera = new THREE.PerspectiveCamera(15, 1, 0.01, 20);
-      this.camera.position.set(0, 1, 2);
+      this.camera.position.set(0, 1.2, 2);
       this.scene.add(this.camera);
     },
     setupTischlampe() {
