@@ -12,7 +12,7 @@
 
       <a-gltf-model
         id="vase"
-        src="/assets/vase/f1980_193-150k-4096.gltf"
+        src="/assets/vase/scene.gltf"
         position="0 0 0"
         scale="0.7 0.7 0.7"
         hide-on-hit-test-start
@@ -25,7 +25,7 @@
       <a-light type="ambient" intensity="1"></a-light>
       <a-light
         type="directional"
-        intensity="2"
+        intensity="1"
         id="light"
         target="vase"
         position="-5 3 1.5"

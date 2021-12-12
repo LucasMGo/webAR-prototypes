@@ -12,7 +12,7 @@
 
       <a-gltf-model
         id="auto"
-        src="/assets/lancia/scene.gltf"
+        src="/assets/auto/scene.gltf"
         position="0 0 0"
         scale="0.2 0.2 0.2"
         hide-on-hit-test-start

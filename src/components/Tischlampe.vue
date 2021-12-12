@@ -12,7 +12,7 @@
 
       <a-gltf-model
         id="lampe"
-        src="/assets/lampe/scene.gltf"
+        src="/assets/tischlampe/scene.gltf"
         position="0 0 0"
         scale="1 1 1"
         hide-on-hit-test-start
