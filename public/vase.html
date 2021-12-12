@@ -2,20 +2,146 @@
 <html>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script>
+    AFRAME.registerComponent("increase-on-click", {
+      init: function () {
+        const model = this.el;
+        const increaseButton = document.getElementById("increase-button");
+        increaseButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          const currentMeshScale = mesh.scale;
+          mesh.scale.set(
+            currentMeshScale.x * 1.25,
+            currentMeshScale.y * 1.25,
+            currentMeshScale.z * 1.25
+          );
+        });
+      },
+    });
+    AFRAME.registerComponent("decrease-on-click", {
+      init: function () {
+        const model = this.el;
+        const decreaseButton = document.getElementById("decrease-button");
+        decreaseButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          const currentMeshScale = mesh.scale;
+          mesh.scale.set(
+            currentMeshScale.x / 1.25,
+            currentMeshScale.y / 1.25,
+            currentMeshScale.z / 1.25
+          );
+        });
+      },
+    });
+    AFRAME.registerComponent("turn-left-on-click", {
+      init: function () {
+        const model = this.el;
+        const turnleftButton = document.getElementById("turnleft-button");
+        turnleftButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          mesh.rotateY(-Math.PI / 2);
+        });
+      },
+    });
+    AFRAME.registerComponent("turn-right-on-click", {
+      init: function () {
+        const model = this.el;
+        const turnrightButton = document.getElementById("turnright-button");
+        turnrightButton.addEventListener("click", () => {
+          const mesh = model.getObject3D("mesh");
+          mesh.rotateY(Math.PI / 2);
+        });
+      },
+    });
+
+    AFRAME.registerComponent("exit-ar-on-click", {
+      init: function () {
+        const exitARButton = document.getElementById("exit-ar-button");
+        exitARButton.addEventListener("click", () => {
+          this.el.sceneEl.exitVR();
+        });
+      },
+    });
+  </script>
+  <style>
+    #button-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 50px;
+      background-color: rgb(210, 247, 0);
+      border-style: solid;
+      z-index: 9999
+    }
+    #increase-button {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      width: 100px;
+      height: 30px;
+      z-index: 9999;
+    }
+    #decrease-button {
+      position: absolute;
+      top: 10px;
+      left: 120px;
+      width: 100px;
+      height: 30px;
+      z-index: 9999;
+    }
+    #exit-ar-button {
+      position: absolute;
+      top: 10px;
+      left: 45%;
+      width: 100px;
+      height: 30px;
+      z-index: 9999;
+    }
+    #turnleft-button {
+      position: absolute;
+      top: 10px;
+      right: 120px;
+      width: 100px;
+      height: 30px;
+      z-index: 9999;
+    }
+    #turnright-button {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      width: 100px;
+      height: 30px;
+      z-index: 9999;
+    }
+  </style>
   <body style="margin : 0px; overflow: hidden;">
-    <a-scene vr-mode-ui="enabled: false;" embedded arjs>
+    <div id="button-wrapper">
+      <button type="button" id="increase-button">Size +25%</button>
+      <button type="button" id="decrease-button">Size -25%</button>
+      <button type="button" id="exit-ar-button">Exit AR</button>
+      <button type="button" id="turnleft-button">Turn left</button>
+      <button type="button" id="turnright-button">Turn right</button>
+  </div>
+    <a-scene vr-mode-ui="enabled: false;" arjs renderer='logarithmicDepthBuffer: true;' exit-ar-on-click>
       <a-marker preset="hiro">
         <a-entity
           id="vase"
           position="0 0 0"
-          scale="3 3 3"
-          gltf-model="/assets/vase/f1980_193-150k-4096.gltf"
+          scale="10 10 10"
+          gltf-model="/assets/vase/scene.gltf"
+          increase-on-click
+          decrease-on-click
+          turn-left-on-click
+          turn-right-on-click
         ></a-entity>
       </a-marker>
       <a-light type="ambient" intensity="1"></a-light>
       <a-light
         type="directional"
-        intensity="2"
+        intensity="1"
         id="light"
         target="vase"
         position="-5 3 1.5"

@@ -4,11 +4,14 @@
       <v-row no-gutters>
         <v-col>
           <iframe
+            v-if="arMode"
+            id="ar-window"
             :src="modelPath"
             :style="{
               width: '100%',
               height: $vuetify.breakpoint.xl ? '85vh' : '80vh',
             }"
+            @load="iframeLoad"
           ></iframe>
         </v-col>
       </v-row>
@@ -54,6 +57,14 @@ export default {
     activeAR() {
       this.arMode = true;
     },
+    iframeLoad() {
+      const exitARButton = document
+        .getElementById("ar-window")
+        .contentWindow.document.getElementById("exit-ar-button");
+      exitARButton.addEventListener("click", () => {
+        this.arMode = false;
+      });
+    },
   },
   computed: {
     modelPath() {
@@ -84,6 +95,7 @@ export default {
       return this.productInfo.credit;
     },
   },
+  mounted() {},
 };
 </script>
 
