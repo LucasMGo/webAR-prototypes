@@ -11,7 +11,7 @@
           angezeigt werden können.
         </p>
         <p>
-          Es handelt sich hierbei um einen Prototypen zur Evalution und
+          Es handelt sich hierbei um einen Prototypen zur Evaluation und
           Identifizierung von Potenzialen von Frameworks im Bereich der
           webbasierten Augmented Reality.
         </p>
